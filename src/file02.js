@@ -2,6 +2,7 @@
 
 import { addRow } from "./functions.js";
 
+
 const frameworks = [
   "Flowbite|25 de septiembre de 2021|269,000|49%",
   "React|24 de mayo de 2013|4,500,000|24%",
@@ -39,4 +40,17 @@ const frameworks = [
  *    Llama a la función addRow pasando el objeto frameworkObj y el ID del cuerpo de la tabla "data-frameworks",
  *    para agregar una nueva fila con estos datos al cuerpo de la tabla HTML.
  */
+
+for (const item of frameworks) {
+  const [frameworkName, releaseDate, usersName, popularityPercentage] = item.split("|").map(str => str.trim());
+
+  const frameworkObj = {
+    frameworkName,
+    releaseDate,
+    usersName,
+    popularityPercentage
+  };
+
+  addRow(frameworkObj, "data-frameworks");
+}
 
